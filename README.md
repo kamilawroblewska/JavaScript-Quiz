@@ -15,11 +15,11 @@ Welcome to the JavaScript Quiz App! This interactive quiz application allows use
 
 ## Project Structure
 
-index.html: Main HTML file for the quiz app.
-style.css: CSS file for styling the app.
-script.js: JavaScript file containing the quiz logic.
-questions.js: JavaScript file with an array of quiz questions.
-highscores.html: Separate page to display high scores.
+index.html: Main HTML file for the quiz app.  
+style.css: CSS file for styling the app.  
+script.js: JavaScript file containing the quiz logic.  
+questions.js: JavaScript file with an array of quiz questions.  
+highscores.html: Separate page to display high scores.  
 scores.js: JavaScript file for handling high scores on the high score page.
 
 ## Sound Effects
