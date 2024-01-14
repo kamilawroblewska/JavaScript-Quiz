@@ -40,7 +40,7 @@ function showQuestions() {
   choicesElement.innerHTML = "";
 
   currentQuestion.choices.forEach((choice) => {
-    const buttlogion = document.createElement("button");
+    const button = document.createElement("button");
     button.textContent = choice;
     choicesElement.appendChild(button);
   });
@@ -106,4 +106,25 @@ function uptadeTimer() {
 }
 
 // Function for saving score
+function saveScore() {
+  const initials = initialInput.value.toUpperCase();
+  if (initials.trim() !== "") {
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+    const newScore = {
+      initials: initials,
+      score: score,
+    };
+
+    highScores.push(newScore);
+    highScores.sort((a, b) => b.score - a.score);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    // Redirect to high scores page
+    window.location.href = "highscores.html";
+  } else {
+    alert("Please enter your initials.");
+  }
+}
+
 // Functions for correct and incorrect sounds
