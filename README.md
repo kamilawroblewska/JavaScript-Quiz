@@ -10,8 +10,8 @@ Welcome to the JavaScript Quiz App! This interactive quiz application allows use
 - **High Score Saving:** Save your initials and score to compare with others.
 - **Separate High Scores Page:** View and clear high scores on a dedicated page.  
   
-![screen](https://github.com/kamilawroblewska/JavaScript-Quiz/blob/main/assets/img/Screenshot%202024-01-14%20at%2017.04.17.png?raw=true)
-![screen1](https://github.com/kamilawroblewska/JavaScript-Quiz/blob/main/assets/img/Screenshot%202024-01-14%20at%2017.04.28.png?raw=true)
+![screen](./assets/img/screen.png)
+![screen1](./assets/img/screen1.png)
 
 ## Project Structure
 

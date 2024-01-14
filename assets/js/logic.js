@@ -1,20 +1,23 @@
 let currentQuestionIndex = 0;
-var timeLeft = 60;
+let timeLeft = 60;
 let timer;
 let score = 0;
+const getDomEl = (id) => document.getElementById(id); // Shortcut
 
 // DOM element
-const mainCointainer = document.getElementById("start-screen");
-const startButton = document.getElementById("start");
-const quizContainer = document.getElementById("questions");
-const questionElement = document.getElementById("question-title");
-const choicesElement = document.getElementById("choices");
-const endContainer = document.getElementById("end-screen");
-const finalScoreElement = document.getElementById("final-score");
-const initialInput = document.getElementById("initials");
-const submitBtn = document.getElementById("submit");
-const feedbackElement = document.getElementById("feedback");
-const timerEl = document.getElementById("time");
+const mainCointainer = getDomEl("start-screen");
+const startButton = getDomEl("start");
+const quizContainer = getDomEl("questions");
+const questionElement = getDomEl("question-title");
+const choicesElement = getDomEl("choices");
+const endContainer = getDomEl("end-screen");
+const finalScoreElement = getDomEl("final-score");
+const initialInput = getDomEl("initials");
+const submitBtn = getDomEl("submit");
+const feedbackElement = getDomEl("feedback");
+const timerEl = getDomEl("time");
+const correctSound = getDomEl("correctSound");
+const incorrectSound = getDomEl("incorrectSound");
 
 // Event listeners
 startButton.addEventListener("click", startQuiz);
@@ -53,12 +56,12 @@ function checkAnswer(event) {
     const currentQuestion = questions[currentQuestionIndex];
 
     if (selectedAnswer === currentQuestion.answer) {
-      displayFeedback("Correct!");
-      playCorrectSound(); // Function for playing correct sound
+      displayFeedback(true, "Correct!");
+      playSound(true); // Function for playing correct sound
       score += 10;
     } else {
-      displayFeedback("Incorrect!");
-      playIncorrectSound(); // Function for playing incorrect sound
+      displayFeedback(true, "Incorrect!");
+      playSound(false); // Function for playing incorrect sound
       timeLeft -= 10; // Time decrecement if answer is wrong
     }
 
@@ -67,7 +70,7 @@ function checkAnswer(event) {
     if (currentQuestionIndex < questions.length) {
       setTimeout(() => {
         showQuestions();
-        hideFeedback();
+        displayFeedback(false);
       }, 1000);
     } else {
       endQuiz();
@@ -76,16 +79,13 @@ function checkAnswer(event) {
 }
 
 // Function for displaying feedback
-function displayFeedback(message) {
-  const feedbackElement = document.getElementById("feedback");
-  feedbackElement.textContent = message;
-  feedbackElement.classList.remove("hide");
-}
-
-// Function for hiding feedback
-function hideFeedback() {
-  const feedbackElement = document.getElementById("feedback");
-  feedbackElement.classList.add("hide");
+function displayFeedback(display, message) {
+  if (display) {
+    feedbackElement.textContent = message;
+    feedbackElement.classList.remove("hide");
+  } else {
+    feedbackElement.classList.add("hide");
+  }
 }
 
 // Function ending quiz
@@ -128,11 +128,10 @@ function saveScore() {
 }
 
 // Functions for correct and incorrect sounds
-function playCorrectSound() {
-  const correctSound = document.getElementById("correctSound");
-  correctSound.play();
-}
-function playIncorrectSound() {
-  const correctSound = document.getElementById("incorrectSound");
-  correctSound.play();
+function playSound(isCorrect) {
+  if (isCorrect) {
+    correctSound.play();
+  } else {
+    incorrectSound.play();
+  }
 }
