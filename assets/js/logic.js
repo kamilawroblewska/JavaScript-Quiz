@@ -1,3 +1,8 @@
+let currentQuestionIndex = 0;
+var timeLeft = 60;
+let timer;
+let score = 0;
+
 // DOM element
 const mainCointainer = document.getElementById("start-screen");
 const startButton = document.getElementById("start");
@@ -42,8 +47,40 @@ function showQuestions() {
 }
 
 // Function checking answers
+function checkAnswer(event) {
+  if (event.target.tagName === "BUTTON") {
+    const selectedAnswer = event.target.textContent;
+    const currentQuestion = questions[currentQuestionIndex];
+
+    if (selectedAnswer === currentQuestion.answer) {
+      displayFeedback("Correct!");
+      playCorrectSound();
+      score += 10;
+    } else {
+      displayFeedback("Incorrect!");
+      playIncorrectSound();
+      timeLeft -= 10; // Time decrecement if answer is wrong
+    }
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+      setTimeout(() => {
+        showQuestions();
+        hideFeedback();
+      }, 1000);
+    } else {
+      endQuiz();
+    }
+  }
+}
+
 // Function for displaying feedback
+function displayFeedback
+
 // Function for hiding feedback
+function hideFeedback() {
+    
 // Function ending quiz
 function endQuiz() {
   clearInterval(timer);
