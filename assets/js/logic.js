@@ -97,5 +97,13 @@ function endQuiz() {
 }
 
 // Function uptading timer
+function uptadeTimer() {
+  timeLeft--;
+  if (timeLeft <= 0) {
+    endQuiz();
+  }
+  timerEl.textContent = timeLeft;
+}
+
 // Function for saving score
 // Functions for correct and incorrect sounds
