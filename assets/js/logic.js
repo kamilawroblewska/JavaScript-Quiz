@@ -24,17 +24,34 @@ function startQuiz() {
   timer = setInterval(uptadeTimer, 1000);
 }
 // Function showing questions
+function showQuestions() {
+  const currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.title;
+
+  const h2 = document.createElement("h2");
+  h2.textContent = questions.title;
+  questionElement.appendChild(h2);
+
+  choicesElement.innerHTML = "";
+
+  currentQuestion.choices.forEach((choice) => {
+    const buttlogion = document.createElement("button");
+    button.textContent = choice;
+    choicesElement.appendChild(button);
+  });
+}
+
 // Function checking answers
 // Function for displaying feedback
 // Function for hiding feedback
 // Function ending quiz
 function endQuiz() {
-    clearInterval(timer);
-    quizContainer.classList.add("hide");
-    endContainer.classList.remove("hide");
-    finalScoreElement.textContent = score;
-  }
-  
+  clearInterval(timer);
+  quizContainer.classList.add("hide");
+  endContainer.classList.remove("hide");
+  finalScoreElement.textContent = score;
+}
+
 // Function uptading timer
 // Function for saving score
 // Functions for correct and incorrect sounds
