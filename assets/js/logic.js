@@ -54,11 +54,11 @@ function checkAnswer(event) {
 
     if (selectedAnswer === currentQuestion.answer) {
       displayFeedback("Correct!");
-      playCorrectSound();
+      playCorrectSound(); // Function for playing correct sound
       score += 10;
     } else {
       displayFeedback("Incorrect!");
-      playIncorrectSound();
+      playIncorrectSound(); // Function for playing incorrect sound
       timeLeft -= 10; // Time decrecement if answer is wrong
     }
 
@@ -120,7 +120,7 @@ function saveScore() {
     highScores.sort((a, b) => b.score - a.score);
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    // Redirect to high scores page
+    // Redirectin to high scores page
     window.location.href = "highscores.html";
   } else {
     alert("Please enter your initials.");
@@ -128,3 +128,11 @@ function saveScore() {
 }
 
 // Functions for correct and incorrect sounds
+function playCorrectSound() {
+  const correctSound = document.getElementById("correctSound");
+  correctSound.play();
+}
+function playIncorrectSound() {
+  const correctSound = document.getElementById("incorrectSound");
+  correctSound.play();
+}
