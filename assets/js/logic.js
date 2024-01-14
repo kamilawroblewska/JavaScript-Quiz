@@ -76,11 +76,18 @@ function checkAnswer(event) {
 }
 
 // Function for displaying feedback
-function displayFeedback
+function displayFeedback(message) {
+  const feedbackElement = document.getElementById("feedback");
+  feedbackElement.textContent = message;
+  feedbackElement.classList.remove("hide");
+}
 
 // Function for hiding feedback
 function hideFeedback() {
-    
+  const feedbackElement = document.getElementById("feedback");
+  feedbackElement.classList.add("hide");
+}
+
 // Function ending quiz
 function endQuiz() {
   clearInterval(timer);
