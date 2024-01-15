@@ -38,7 +38,7 @@ This epic is licensed under the MIT License. Use it wisely, for great power come
 
 ## Test
 
-For a live demonstration of the JavaScript Quiz, check out my GitHub Pages link.
+For a live demonstration of the JavaScript Quiz, check out my [GitHub Pages link](https://kamilawroblewska.github.io/JavaScript-Quiz/).
 
 Feel free to fork this repository and customize the code to meet your specific requirements. Enjoy the quiz!
 
