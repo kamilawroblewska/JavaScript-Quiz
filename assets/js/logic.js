@@ -5,7 +5,7 @@ let score = 0;
 const getDomEl = (id) => document.getElementById(id); // Shortcut
 
 // DOM element
-const mainCointainer = getDomEl("start-screen");
+const maincontainer = getDomEl("start-screen");
 const startButton = getDomEl("start");
 const quizContainer = getDomEl("questions");
 const questionElement = getDomEl("question-title");
@@ -26,10 +26,10 @@ submitBtn.addEventListener("click", saveScore);
 
 // Function starting quiz
 function startQuiz() {
-  mainCointainer.classList.add("hide");
+  maincontainer.classList.add("hide");
   quizContainer.classList.remove("hide");
   showQuestions();
-  timer = setInterval(uptadeTimer, 1000);
+  timer = setInterval(updadeTimer, 1000);
 }
 // Function showing questions
 function showQuestions() {
@@ -62,7 +62,7 @@ function checkAnswer(event) {
     } else {
       displayFeedback(true, "Incorrect!");
       playSound(false); // Function for playing incorrect sound
-      timeLeft -= 10; // Time decrecement if answer is wrong
+      timeLeft -= 10; // Time decreasement if answer is wrong
     }
 
     currentQuestionIndex++;
@@ -96,8 +96,8 @@ function endQuiz() {
   finalScoreElement.textContent = score;
 }
 
-// Function uptading timer
-function uptadeTimer() {
+// Function updading timer
+function updadeTimer() {
   timeLeft--;
   if (timeLeft <= 0) {
     endQuiz();
@@ -120,7 +120,7 @@ function saveScore() {
     highScores.sort((a, b) => b.score - a.score);
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    // Redirectin to high scores page
+    // Redirecting to high scores page
     window.location.href = "highscores.html";
   } else {
     alert("Please enter your initials.");
